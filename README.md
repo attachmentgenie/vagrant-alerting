@@ -1,4 +1,4 @@
-#  vagrant-example
+#  vagrant-icinga
 
 vagrant starter kit 
 

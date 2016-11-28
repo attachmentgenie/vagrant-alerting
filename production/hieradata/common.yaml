@@ -1,3 +1,23 @@
 ---
+classes:
+ - roles::alerting
+profiles::apache::default_vhost: true
 profiles::firewall::ensure: stopped
+profiles::icinga2::manage_repo: true
+profiles::icinga2_web::manage_repo: true
+profiles::icinga2_web::manage_vhost: true
+profiles::mysql::databases:
+  icinga2:
+    user: icinga2
+    password: icinga2
+  icingaweb2:
+    user: icinga2
+    password: icinga2
+profiles::repositories::epel: true
+profiles::repositories::remi: true
+stacks::alerting::icinga2: true
+stacks::alerting::icinga2_web: true
 stacks::bootstrap::firewall: true
+stacks::bootstrap::repos: true
+stacks::database::mysql: true
+stacks::website::apache: true
