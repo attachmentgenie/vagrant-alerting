@@ -1,10 +1,12 @@
 ---
 nodes:
     - name: centos7
-      hostname: node1.icinga.vagrant
+      hostname: icinga.alerting.vagrant
       box: bento/centos-7.3
       ip: 192.168.47.42
-      ports:
-        - guest: 22
-          host: 4742
-virtualbox_group: '/Vagrant/icinga'
+    - name: centos7
+      hostname: dashing.alerting.vagrant
+      box: bento/centos-7.3
+      ip: 192.168.47.43
+puppet_version: 4.10.4
+virtualbox_group: '/Vagrant/alerting'
