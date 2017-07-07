@@ -1,10 +1,10 @@
 ---
 nodes:
-    - name: centos7
+    - name: icinga 
       hostname: icinga.alerting.vagrant
       box: bento/centos-7.3
       ip: 192.168.47.42
-    - name: centos7
+    - name: dashing
       hostname: dashing.alerting.vagrant
       box: bento/centos-7.3
       ip: 192.168.47.43
