@@ -8,5 +8,4 @@ nodes:
       hostname: dashing.alerting.vagrant
       box: bento/centos-7.3
       ip: 192.168.47.43
-puppet_version: 4.10.4
 virtualbox_group: '/Vagrant/alerting'
