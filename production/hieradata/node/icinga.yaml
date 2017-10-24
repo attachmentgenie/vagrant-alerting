@@ -1,0 +1,36 @@
+---
+profiles::alerting::icinga2: true
+profiles::alerting::icinga2::manage_repo: true
+profiles::alerting::icingaweb2: true
+profiles::bootstrap::repos: true
+profiles::bootstrap::repositories::epel: true
+profiles::bootstrap::repositories::remi: true
+profiles::database::postgresql: true
+profiles::database::postgresql::databases:
+  icinga2:
+    user: icinga2
+    password: icinga2
+  icingaweb2:
+    user: icingaweb2
+    password: icingaweb2
+profiles::database::postgresql::manage_repo: true
+profiles::runtime::php: true
+profiles::runtime::php::extensions:
+  'intl': {}
+  'mbstring': {}
+  'pgsql': {}
+profiles::website::apache: true
+profiles::website::apache::default_vhost: true
+profiles::website::apache::purge_configs: false
+profiles::website::apache::purge_vhost_dir: falses
+profiles::website::apache::vhosts:
+  icinga.alerting.vagrant:
+    docroot: '/usr/share/icingaweb2/public'
+    options:
+      - SymLinksIfOwnerMatch
+    port: 80
+    rewrites:
+      - rewrite_rule:
+          - '^.*$ index.php [NC,L]'
+    setenv:
+      - 'ICINGAWEB_CONFIGDIR "/etc/icingaweb2"'

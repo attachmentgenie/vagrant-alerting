@@ -22,12 +22,15 @@
 [submodule "production/modules/inifile"]
 	path = production/modules/inifile
 	url = https://github.com/puppetlabs/puppetlabs-inifile.git
-[submodule "production/modules/mysql"]
-	path = production/modules/mysql
-	url = https://github.com/puppetlabs/puppetlabs-mysql.git
 [submodule "production/modules/epel"]
 	path = production/modules/epel
 	url = https://github.com/stahnma/puppet-module-epel.git
-[submodule "production/modules/nginx"]
-	path = production/modules/nginx
-	url = https://github.com/voxpupuli/puppet-nginx.git
+[submodule "production/modules/postgresql"]
+	path = production/modules/postgresql
+	url = https://github.com/puppetlabs/puppetlabs-postgresql.git
+[submodule "production/modules/php"]
+	path = production/modules/php
+	url = https://github.com/voxpupuli/puppet-php.git
+[submodule "production/modules/apache"]
+	path = production/modules/apache
+	url = https://github.com/puppetlabs/puppetlabs-apache.git
