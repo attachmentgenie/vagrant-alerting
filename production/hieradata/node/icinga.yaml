@@ -22,7 +22,7 @@ profiles::runtime::php::extensions:
 profiles::website::apache: true
 profiles::website::apache::default_vhost: true
 profiles::website::apache::purge_configs: false
-profiles::website::apache::purge_vhost_dir: falses
+profiles::website::apache::purge_vhost_dir: false
 profiles::website::apache::vhosts:
   icinga.alerting.vagrant:
     docroot: '/usr/share/icingaweb2/public'
