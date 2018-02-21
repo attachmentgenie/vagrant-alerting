@@ -1,6 +1,6 @@
 ---
 profiles::alerting::icinga2: true
-profiles::alerting::icinga2::manage_repo: true
+profiles::alerting::icingaweb2::manage_repo: true
 profiles::alerting::icingaweb2: true
 profiles::bootstrap::repos: true
 profiles::bootstrap::repositories::epel: true
