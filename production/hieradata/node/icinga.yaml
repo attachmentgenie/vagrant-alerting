@@ -34,3 +34,10 @@ profiles::website::apache::vhosts:
           - '^.*$ index.php [NC,L]'
     setenv:
       - 'ICINGAWEB_CONFIGDIR "/etc/icingaweb2"'
+
+profiles::bootstrap::repositories::repositories:
+  'centos-sclo-rh':
+    baseurl: 'http://mirror.centos.org/centos/7/sclo/$basearch/rh/'
+    enabled: 1
+    gpgcheck: 0
+
