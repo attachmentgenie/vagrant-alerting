@@ -1,10 +1,12 @@
 ---
-profiles::alerting::icinga2: true
-profiles::alerting::icingaweb2::manage_repo: true
 profiles::alerting::icingaweb2: true
 profiles::bootstrap::repos: true
 profiles::bootstrap::repositories::epel: true
-profiles::bootstrap::repositories::remi: true
+profiles::bootstrap::repositories::repositories:
+  'centos-sclo-rh':
+    baseurl: 'http://mirror.centos.org/centos/7/sclo/$basearch/rh/'
+    enabled: 1
+    gpgcheck: 0
 profiles::database::postgresql: true
 profiles::database::postgresql::databases:
   icinga2:
@@ -14,30 +16,33 @@ profiles::database::postgresql::databases:
     user: icingaweb2
     password: icingaweb2
 profiles::database::postgresql::manage_repo: true
+profiles::monitoring::icinga2: true
+profiles::monitoring::icinga2::ipaddress: '%{::ipaddress_enp0s8}'
+profiles::monitoring::icinga2::manage_repo: true
+profiles::monitoring::icinga2::parent_endpoints:
+  'icinga.alerting.vagrant':
+    host: 192.168.47.42
+profiles::monitoring::icinga2::api_pki: 'ca'
+profiles::monitoring::icinga2::server: true
+profiles::monitoring::icinga2::vars:
+  disks:
+    'disk /':
+      disk_wfree: 10%
+      disk_cfree: 5%
 profiles::runtime::php: true
+profiles::runtime::php::config_root: '/etc'
 profiles::runtime::php::extensions:
-  'intl': {}
-  'mbstring': {}
-  'pgsql': {}
+  'intl':
+    package_prefix: 'rh-php71-php-'
+  'mbstring':
+    package_prefix: 'rh-php71-php-'
+  'pgsql':
+    package_prefix: 'rh-php71-php-'
+profiles::runtime::php::fpm_package: rh-php71-php-fpm
+profiles::runtime::php::fpm_service_name: rh-php71-php-fpm
+profiles::runtime::php::install_fpm: true
+profiles::runtime::php::version: '7.1'
 profiles::website::apache: true
 profiles::website::apache::default_vhost: true
 profiles::website::apache::purge_configs: false
 profiles::website::apache::purge_vhost_dir: false
-profiles::website::apache::vhosts:
-  icinga.alerting.vagrant:
-    docroot: '/usr/share/icingaweb2/public'
-    options:
-      - SymLinksIfOwnerMatch
-    port: 80
-    rewrites:
-      - rewrite_rule:
-          - '^.*$ index.php [NC,L]'
-    setenv:
-      - 'ICINGAWEB_CONFIGDIR "/etc/icingaweb2"'
-
-profiles::bootstrap::repositories::repositories:
-  'centos-sclo-rh':
-    baseurl: 'http://mirror.centos.org/centos/7/sclo/$basearch/rh/'
-    enabled: 1
-    gpgcheck: 0
-

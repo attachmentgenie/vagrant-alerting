@@ -2,10 +2,6 @@
 nodes:
     - name: icinga 
       hostname: icinga.alerting.vagrant
-      box: bento/centos-7.3
+      box: bento/centos-7.4
       ip: 192.168.47.42
-    - name: dashing
-      hostname: dashing.alerting.vagrant
-      box: bento/centos-7.3
-      ip: 192.168.47.43
 virtualbox_group: '/Vagrant/alerting'
