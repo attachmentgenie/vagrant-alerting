@@ -1,7 +1,7 @@
 ---
+classes:
+ - roles::alerting
 profiles::alerting::icingaweb2: true
-profiles::bootstrap::repos: true
-profiles::bootstrap::repositories::epel: true
 profiles::bootstrap::repositories::repositories:
   'centos-sclo-rh':
     baseurl: 'http://mirror.centos.org/centos/7/sclo/$basearch/rh/'
@@ -16,19 +16,7 @@ profiles::database::postgresql::databases:
     user: icingaweb2
     password: icingaweb2
 profiles::database::postgresql::manage_repo: true
-profiles::monitoring::icinga2: true
-profiles::monitoring::icinga2::ipaddress: '%{::ipaddress_enp0s8}'
-profiles::monitoring::icinga2::manage_repo: true
-profiles::monitoring::icinga2::parent_endpoints:
-  'icinga.alerting.vagrant':
-    host: 192.168.47.42
-profiles::monitoring::icinga2::api_pki: 'ca'
 profiles::monitoring::icinga2::server: true
-profiles::monitoring::icinga2::vars:
-  disks:
-    'disk /':
-      disk_wfree: 10%
-      disk_cfree: 5%
 profiles::runtime::php: true
 profiles::runtime::php::config_root: '/etc'
 profiles::runtime::php::extensions:

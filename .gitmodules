@@ -34,3 +34,15 @@
 [submodule "production/modules/apache"]
 	path = production/modules/apache
 	url = https://github.com/puppetlabs/puppetlabs-apache.git
+[submodule "production/modules/puppetdb"]
+	path = production/modules/puppetdb
+	url = git@github.com:puppetlabs/puppetlabs-puppetdb.git
+[submodule "production/modules/puppet"]
+	path = production/modules/puppet
+	url = git@github.com:theforeman/puppet-puppet.git
+[submodule "production/modules/hocon"]
+	path = production/modules/hocon
+	url = https://github.com/puppetlabs/puppetlabs-hocon.git
+[submodule "production/modules/puppet_authorization"]
+	path = production/modules/puppet_authorization
+	url = https://github.com/puppetlabs/puppetlabs-puppet_authorization.git

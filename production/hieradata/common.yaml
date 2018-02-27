@@ -1,5 +1,21 @@
 ---
 classes:
- - roles::alerting
+ - roles::node
 profiles::bootstrap::firewall: true
 profiles::bootstrap::firewall::ensure: stopped
+profiles::bootstrap::puppet: true
+profiles::bootstrap::puppet::runinterval: 180
+profiles::bootstrap::puppet::splaylimit: 180s
+profiles::bootstrap::repos: true
+profiles::bootstrap::repositories::epel: true
+profiles::monitoring::icinga2: true
+profiles::monitoring::icinga2::ipaddress: '%{::ipaddress_enp0s8}'
+profiles::monitoring::icinga2::manage_repo: true
+profiles::monitoring::icinga2::parent_endpoints:
+  'icinga.alerting.vagrant':
+    host: 192.168.47.42
+profiles::monitoring::icinga2::vars:
+  disks:
+    'disk /':
+      disk_wfree: 10%
+      disk_cfree: 5%
