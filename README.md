@@ -1,14 +1,14 @@
-#  vagrant-icinga
+#  vagrant-alerting
 
-vagrant starter kit 
+A vagrant setup that create an icinga2 setup 
 
 ## Requirements
-    Virtualbox                        => https://www.virtualbox.org
-    Vagrant                           => http://www.vagrantup.com
-    vagrant-hostmanager               => vagrant plugin install vagrant-hostmanager
-    vagrant-cachier  (optional)       => vagrant plugin install vagrant-cachier
-    vagrant-puppet-install (optional) => vagrant plugin install vagrant-puppet-install
-    vagrant-triggers (optional)       => vagrant plugin install vagrant-triggers
+    Virtualbox                  => https://www.virtualbox.org
+    Vagrant                     => http://www.vagrantup.com
+    vagrant-hostmanager         => vagrant plugin install vagrant-hostmanager
+    vagrant-puppet-install      => vagrant plugin install vagrant-puppet-install
+    vagrant-cachier  (optional) => vagrant plugin install vagrant-cachier
+    vagrant-triggers (optional) => vagrant plugin install vagrant-triggers
     
 ## Preparation
     git submodule update --init
@@ -16,29 +16,8 @@ vagrant starter kit
 ## Setup
     vagrant up
 
-## Puppet Development
+## (G)UI interfaces
 
-### Hiera
-
-the puppet master deploys a fairly default hiera.yaml
-
-    [vagrant@puppetmaster ~]$ cat /etc/puppet/hiera.yaml 
-    ---
-    # Managed by puppet
-    :backends:
-      - yaml
-    :hierarchy:
-      - "node/%{::hostname}"
-      - "environment/%{::environment}"
-      - "common"
-    :yaml:
-      :datadir: "/var/lib/hiera"
-
-### Manifests
-
-Place your own manifests in this directory. A fairly standard default.pp is already present.
-
-### Modules
-
-Place your own modules in this directory. 5 modules are already present one of which is stdlib.
-
+    icinga     => icinga.alerting.vagrant/icingaweb2
+        username: icingaadmin
+        passwd  : icinga
