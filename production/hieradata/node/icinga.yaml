@@ -32,5 +32,43 @@ profiles::runtime::php::install_fpm: true
 profiles::runtime::php::version: '7.1'
 profiles::website::apache: true
 profiles::website::apache::default_vhost: false
-profiles::website::apache::purge_configs: true
-profiles::website::apache::purge_vhost_dir: false
+profiles::website::apache::purge_configs: false
+profiles::website::apache::purge_vhost_dir: true
+profiles::website::apache::vhosts:
+  'icinga.alerting.vagrant':
+    port: 80
+    docroot: '/usr/share/icingaweb2/public'
+    directories:
+      - 'icingaweb':
+        path: '/usr/share/icingaweb2/public'
+        directoryindex: 'index.php'
+        options:
+          - 'SymLinksIfOwnerMatch'
+        setenv:
+          - 'ICINGAWEB_CONFIGDIR "/etc/icingaweb2"'
+        rewrites:
+          - 'icingaweb':
+            comment: 'Icingaweb2'
+            rewrite_base: '/icingaweb2'
+            rewrite_cond:
+              - '%%{}{REQUEST_FILENAME} -s [OR]'
+              - '%%{}{REQUEST_FILENAME} -l [OR]'
+              - '%%{}{REQUEST_FILENAME} -d'
+            rewrite_rule:
+              - '^.*$ - [NC,L]'
+          - 'php':
+            comment: 'PHP'
+            rewrite_rule:
+              - '^.*$ index.php [NC,L]'
+    setenvif:
+      - 'Authorization "(.*)" HTTP_AUTHORIZATION=$1'
+    aliases:
+      - '/icingaweb2':
+        alias: '/icingaweb2'
+        path: '/usr/share/icingaweb2/public'
+    redirectmatch_regexp: '^/$'
+    redirectmatch_dest: '/icingaweb2'
+    custom_fragment: |
+      <LocationMatch "^/icingaweb2/(.*\.php)$">
+          ProxyPassMatch "fcgi://127.0.0.1:9000/usr/share/icingaweb2/public/$1"
+        </LocationMatch>
