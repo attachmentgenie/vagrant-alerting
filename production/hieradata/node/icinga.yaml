@@ -31,6 +31,6 @@ profiles::runtime::php::fpm_service_name: rh-php71-php-fpm
 profiles::runtime::php::install_fpm: true
 profiles::runtime::php::version: '7.1'
 profiles::website::apache: true
-profiles::website::apache::default_vhost: true
-profiles::website::apache::purge_configs: false
+profiles::website::apache::default_vhost: false
+profiles::website::apache::purge_configs: true
 profiles::website::apache::purge_vhost_dir: false
