@@ -46,3 +46,6 @@
 [submodule "production/modules/puppet_authorization"]
 	path = production/modules/puppet_authorization
 	url = https://github.com/puppetlabs/puppetlabs-puppet_authorization.git
+[submodule "production/modules/vcsrepo"]
+	path = production/modules/vcsrepo
+	url = https://github.com/puppetlabs/puppetlabs-vcsrepo.git
