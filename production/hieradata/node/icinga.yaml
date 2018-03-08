@@ -2,6 +2,8 @@
 classes:
  - roles::alerting
 profiles::alerting::icingaweb2: true
+profiles::alerting::icingaweb2::modules:
+  - 'director'
 profiles::bootstrap::repositories::repositories:
   'centos-sclo-rh':
     baseurl: 'http://mirror.centos.org/centos/7/sclo/$basearch/rh/'
@@ -15,6 +17,9 @@ profiles::database::postgresql::databases:
   icingaweb2:
     user: icingaweb2
     password: icingaweb2
+  director:
+    user: director
+    password: director
 profiles::database::postgresql::manage_repo: true
 profiles::monitoring::icinga2::server: true
 profiles::runtime::php: true
@@ -72,3 +77,4 @@ profiles::website::apache::vhosts:
       <LocationMatch "^/icingaweb2/(.*\.php)$">
           ProxyPassMatch "fcgi://127.0.0.1:9000/usr/share/icingaweb2/public/$1"
         </LocationMatch>
+
