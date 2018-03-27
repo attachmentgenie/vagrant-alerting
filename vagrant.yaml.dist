@@ -1,6 +1,6 @@
 ---
 nodes:
-    - name: puppet
+    - name: puppetmaster
       hostname: puppet.alerting.vagrant
       box: bento/centos-7.4
       cpus: 2
