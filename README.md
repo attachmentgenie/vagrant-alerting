@@ -18,6 +18,6 @@ A vagrant setup that create an icinga2 setup
 
 ## (G)UI interfaces
 
-    icinga     => icinga.alerting.vagrant/icingaweb2
+    icinga     => icinga.alerting.vagrant
         username: icingaadmin
         passwd  : icinga
