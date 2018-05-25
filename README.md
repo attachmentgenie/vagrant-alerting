@@ -8,7 +8,6 @@ A vagrant setup that create an icinga2 setup
     vagrant-hostmanager         => vagrant plugin install vagrant-hostmanager
     vagrant-puppet-install      => vagrant plugin install vagrant-puppet-install
     vagrant-cachier  (optional) => vagrant plugin install vagrant-cachier
-    vagrant-triggers (optional) => vagrant plugin install vagrant-triggers
     
 ## Preparation
     git submodule update --init
