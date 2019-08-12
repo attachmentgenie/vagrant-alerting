@@ -5,7 +5,6 @@ profiles::bootstrap::puppet::autosign: '/etc/puppetlabs/puppet/autosign.conf'
 profiles::bootstrap::puppet::autosign_domains:
   - '*.vagrant'
 profiles::bootstrap::puppet::hiera_yaml_datadir: "/etc/puppetlabs/code/environments/production/hieradata"
-profiles::bootstrap::puppet::puppetmaster: puppet.alerting.vagrant
 profiles::bootstrap::puppet::server: true
 profiles::bootstrap::puppet::server_external_nodes: ''
 profiles::bootstrap::puppet::server_puppetdb_host: puppet.alerting.vagrant
@@ -16,6 +15,5 @@ profiles::database::postgresql::databases:
     user: puppetdb
     password: puppetdb
     grant: all
-profiles::database::postgresql::manage_repo: true
 profiles::puppet::puppetdb: true
 profiles::puppet::puppetmaster: true

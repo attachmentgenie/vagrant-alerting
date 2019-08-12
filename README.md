@@ -10,12 +10,22 @@ A vagrant setup that create an icinga2 setup
     vagrant-cachier  (optional) => vagrant plugin install vagrant-cachier
     
 ## Preparation
+
     git submodule update --init
+    bundle install
     
 ## Setup
+
     vagrant up
 
-## (G)UI interfaces
+## Inspec tests
+
+    bundle exec rake
+    bundle exec rake inspec[centos7] 
+
+## TLDR
+
+### (G)UI interfaces
 
     icinga     => icinga.alerting.vagrant
         username: icingaadmin

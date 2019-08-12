@@ -2,7 +2,7 @@
 nodes:
     - name: puppetmaster
       hostname: puppet.alerting.vagrant
-      box: bento/centos-7.4
+      box: bento/centos-7.6
       cpus: 2
       memory: 4096
       ip: 192.168.47.41
@@ -11,7 +11,7 @@ nodes:
           dst: '/etc/puppetlabs/code/environments/production'
     - name: icinga 
       hostname: icinga.alerting.vagrant
-      box: bento/centos-7.4
+      box: bento/centos-7.6
       ip: 192.168.47.42
       provision_type: puppet_agent
       puppetmaster: puppet.alerting.vagrant

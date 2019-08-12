@@ -20,7 +20,6 @@ profiles::database::postgresql::databases:
   director:
     user: director
     password: director
-profiles::database::postgresql::manage_repo: true
 profiles::monitoring::icinga2::server: true
 profiles::runtime::php: true
 profiles::runtime::php::config_root: '/etc'
@@ -33,6 +32,7 @@ profiles::runtime::php::extensions:
     package_prefix: 'rh-php71-php-'
 profiles::runtime::php::fpm_package: rh-php71-php-fpm
 profiles::runtime::php::fpm_service_name: rh-php71-php-fpm
+profiles::runtime::php::install_cachetool: false
 profiles::runtime::php::install_fpm: true
 profiles::runtime::php::version: '7.1'
 profiles::website::apache: true
