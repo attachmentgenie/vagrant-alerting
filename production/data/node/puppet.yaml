@@ -15,5 +15,12 @@ profiles::database::postgresql::databases:
     user: puppetdb
     password: puppetdb
     grant: all
+profiles::orchestration::consul::config:
+  "addresses": {
+    "http": '%{::ipaddress_eth1}'
+  }
+  bootstrap_expect: 1
+  server: true
+profiles::orchestration::consul::server: true
 profiles::puppet::puppetdb: true
 profiles::puppet::puppetmaster: true

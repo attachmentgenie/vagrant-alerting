@@ -55,3 +55,6 @@
 [submodule "production/modules/archive"]
 	path = production/modules/archive
 	url = https://github.com/voxpupuli/puppet-archive.git
+[submodule "production/modules/consul"]
+	path = production/modules/consul
+	url = https://github.com/solarkennedy/puppet-consul.git

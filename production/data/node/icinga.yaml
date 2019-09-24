@@ -3,7 +3,9 @@ classes:
  - roles::alerting
 profiles::alerting::icingaweb2: true
 profiles::alerting::icingaweb2::modules:
+  - 'consul'
   - 'director'
+profiles::alerting::icingaweb2::director::git_revision: 'd1832526a9f67a69b5e155302b7be9a57f588fa5'
 profiles::bootstrap::repositories::repositories:
   'centos-sclo-rh':
     baseurl: 'http://mirror.centos.org/centos/7/sclo/$basearch/rh/'

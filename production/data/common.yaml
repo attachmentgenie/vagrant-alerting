@@ -11,6 +11,7 @@ profiles::bootstrap::repos: true
 profiles::bootstrap::repositories::epel: true
 profiles::database::postgresql::manage_package_repo: true
 profiles::monitoring::icinga2: true
+profiles::monitoring::icinga2::client: false
 profiles::monitoring::icinga2::ipaddress: '%{::ipaddress_enp0s8}'
 profiles::monitoring::icinga2::manage_repo: true
 profiles::monitoring::icinga2::parent_endpoints:
@@ -21,3 +22,13 @@ profiles::monitoring::icinga2::vars:
     'disk /':
       disk_wfree: 10%
       disk_cfree: 5%
+profiles::orchestration::consul: true
+profiles::orchestration::consul::config:
+  retry_join:
+    - puppet.alerting.vagrant
+profiles::orchestration::consul::config_defaults:
+  advertise_addr: '%{::ipaddress_eth1}'
+  data_dir: /var/lib/consul
+  datacenter: lab
+profiles::orchestration::consul::version: '1.6.1'
+...
