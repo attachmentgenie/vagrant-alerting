@@ -1,5 +1,5 @@
 provider "icinga2" {
-  api_url                  = "https://icinga.alerting.vagrant:5665/v1"
+  api_url                  = "http://icinga.alerting.vagrant:5665/v1"
   api_user                 = "root"
   api_password             = "icinga"
   insecure_skip_tls_verify = true
