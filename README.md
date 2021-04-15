@@ -1,5 +1,7 @@
 #  vagrant-alerting
 
+this project has been superseded by https://github.com/attachmentgenie/vagrant-observability
+
 A vagrant setup that create an icinga2 setup 
 
 ## Requirements
